@@ -1,0 +1,7 @@
+FROM nginx:latest
+ENV context_path=REPLACE_CXPATH
+RUN mkdir -p /usr/share/nginx/html/${context_path}/
+COPY UIUX.zip /usr/share/nginx/html/${context_path}/
+RUN unzip /usr/share/nginx/html/${context_path}/UIUX.zip
+RUN rm -Rf UIUX.zip
+EXPOSE 80
